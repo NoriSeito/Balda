@@ -14,6 +14,8 @@ namespace Balda
     {
         WordsList list = new WordsList();
         List<Button> btns = new List<Button>();
+        List<Button> keyboard = new List<Button>();
+
 
         PropertiesBalda prop = new PropertiesBalda();
 
@@ -57,7 +59,7 @@ namespace Balda
                         btn.Size = new Size(Size_btn, Size_btn);
                         btn.Location = new Point(i * pos, j * pos);
 
-                        btn.Click += new System.EventHandler(this.Bnts_Clicks);
+                        //btn.Click += new System.EventHandler(this.Bnts_Clicks);
 
                         panel1.Controls.Add(btn);
                         btns.Add(btn);
@@ -65,7 +67,7 @@ namespace Balda
                 }
             }
 
-            label1.Text = prop.NickName;
+            label1.Text = "Игрок 1";
 
             label3.Text = "Игрок 2";
 
@@ -75,7 +77,7 @@ namespace Balda
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            prop.LoadNick();
+            prop.LoadNick(textBox1);
 
             list.Input_All_Words();
 
@@ -84,6 +86,10 @@ namespace Balda
             string startWord = list.StarterWord;
 
             Generate_App(btns, startWord);
+
+            this.Size = new Size(995, 610 + 340);
+
+            Generate_Board();
         }
 
         private void новаяИграToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,14 +111,6 @@ namespace Balda
             Application.Exit();
         }
 
-        List<Button> keyboard = new List<Button>();
-
-        private void Bnts_Clicks(object sender, EventArgs e)
-        {
-            this.Size = new Size(995, 610 + 340);
-
-            Generate_Board();
-        }
 
         public void Generate_Board()
         {
@@ -152,7 +150,7 @@ namespace Balda
 
         public void KeyBoard_Click(object sender, EventArgs e)
         {
-            
+            string text;
         }
     }
 }

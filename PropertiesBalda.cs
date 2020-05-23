@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using System.IO;
 
+using System.Windows.Forms;
+
 namespace Balda
 {
     internal class PropertiesBalda
@@ -20,7 +22,7 @@ namespace Balda
             set => _nickName = value;
         }
 
-        public void LoadNick()
+        public void LoadNick(TextBox txt)
         {
             StreamReader fs = new StreamReader("../../Settings/NickName.txt", Encoding.GetEncoding(1251));
 
@@ -41,7 +43,7 @@ namespace Balda
 
             for (int i = num + 1; i < line.Length; i++)
             {
-                nick.Insert(nick.Length, Convert.ToString(line[i]));
+                nick.Insert(nick.Length + 1 , Convert.ToString(line[i]));
             }
 
             NickName = nick;

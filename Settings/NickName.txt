@@ -1,1 +1,1 @@
-Nickname: Player
+Nickname: Игрок
