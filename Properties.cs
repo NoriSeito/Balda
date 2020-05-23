@@ -4,9 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.IO;
+
 namespace Balda
 {
-    class Properties
+    internal class Properties
     {
+        string NickName;
+
+        string color;
+
+        public Properties()
+        {
+            StreamReader fs = new StreamReader("../../Settings/NickName.txt", Encoding.GetEncoding(1251));
+
+
+        }
+
     }
 }
