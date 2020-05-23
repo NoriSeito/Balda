@@ -47,7 +47,7 @@ namespace Balda
 
         public void Input_All_Words()
         {
-            StreamReader fs = new StreamReader("BaldaWords/Words.txt", Encoding.GetEncoding(1251));
+            StreamReader fs = new StreamReader("../../Words/Words.txt", Encoding.GetEncoding(1251));
 
             string str;
             int lenght;
