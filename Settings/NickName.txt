@@ -1,1 +1,2 @@
-Nickname: Игрок
+Poseydon
+Bot

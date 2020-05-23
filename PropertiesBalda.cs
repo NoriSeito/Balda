@@ -12,16 +12,23 @@ namespace Balda
 {
     internal class PropertiesBalda
     {
-        public string _nickName;
+        public string _nickName1;
+        public string _nickName2;
 
         public string _colorPlit;
 
         public string _colorKeyBoard;
 
-        public string NickName
+        public string NickName1
         {
-            get => _nickName;
-            set => _nickName = value;
+            get => _nickName1;
+            set => _nickName1 = value;
+        }
+        
+        public string NickName2
+        {
+            get => _nickName2;
+            set => _nickName2 = value;
         }
 
         public string ColorPlit
@@ -40,24 +47,13 @@ namespace Balda
         {
             StreamReader fs = new StreamReader("../../Settings/NickName.txt", Encoding.GetEncoding(1251));
 
-            string line = (string)fs.ReadLine();
+            string nick = (string)fs.ReadLine();
 
-            int num = 0;
+            NickName1 = nick;
 
-            for (int i = 0; i < line.Length; i++)
-            {
-                if (line[i] == ':' && line[i + 1] == ' ')
-                {
-                    num = i + 1;
-                    return;
-                }
-            }
+            nick = (string)fs.ReadLine();
 
-            string nick = line.Remove(0, 10);
-
-            txt.Text += nick + Environment.NewLine;
-
-            NickName = nick;
+            NickName2 = nick;
         }
 
         public void SetColors()
@@ -82,6 +78,13 @@ namespace Balda
 
             ColorPlit = colorPlit;
             ColorKeyBoard = colorKeyBoard;
+        }
+
+        public void Seve_Settings()
+        {
+            StreamWriter fd = new StreamWriter("../../Settings/NickName.txt", Encoding.GetEncoding(1251));
+
+
         }
 
     }

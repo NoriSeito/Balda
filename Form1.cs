@@ -73,9 +73,9 @@ namespace Balda
                 }
             }
 
-            label1.Text = "Игрок 1";
+            label1.Text = prop.NickName1;
 
-            label3.Text = "Игрок 2";
+            label3.Text = prop.NickName2;
 
             label2.Text = label4.Text = "0";
 
