@@ -15,6 +15,8 @@ namespace Balda
         WordsList list = new WordsList();
         List<Button> btns = new List<Button>();
 
+        PropertiesBalda prop = new PropertiesBalda();
+
         public Form1()
         {
             InitializeComponent();
@@ -63,7 +65,7 @@ namespace Balda
                 }
             }
 
-            label1.Text = "Игрок 1";
+            label1.Text = prop.NickName;
 
             label3.Text = "Игрок 2";
 
@@ -73,6 +75,8 @@ namespace Balda
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            prop.LoadNick();
+
             list.Input_All_Words();
 
             list.Generate_Start_word();
