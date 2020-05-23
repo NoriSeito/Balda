@@ -44,7 +44,7 @@ namespace Balda
                     {
                         Button btn = new Button();
 
-                        string color = prop.Color;
+                        string color = prop.ColorPlit;
 
                         btn.BackColor = Color.FromName(color);
                         btn.Text = Convert.ToString(startWord[i]);
@@ -58,7 +58,7 @@ namespace Balda
                     {
                         Button btn = new Button();
 
-                        string color = prop.Color;
+                        string color = prop.ColorPlit;
 
                         btn.BackColor = Color.FromName(color);
                         btn.Text = "";
@@ -145,6 +145,9 @@ namespace Balda
                     }
                     num++;
 
+                    string color = prop.ColorKeyBoard;
+
+                    btn.BackColor = Color.FromName(color);
                     btn.Size = new Size(btn_weight, btn_height);
                     btn.Location = new Point(i * (btn_weight + 1), j * (btn_height + 1) + 610);
 

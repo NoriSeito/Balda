@@ -14,7 +14,9 @@ namespace Balda
     {
         public string _nickName;
 
-        public string _color;
+        public string _colorPlit;
+
+        public string _colorKeyBoard;
 
         public string NickName
         {
@@ -22,10 +24,16 @@ namespace Balda
             set => _nickName = value;
         }
 
-        public string Color
+        public string ColorPlit
         {
-            get => _color;
-            set => _color = value;
+            get => _colorPlit;
+            set => _colorPlit = value;
+        }
+
+        public string ColorKeyBoard
+        {
+            get => _colorKeyBoard;
+            set => _colorKeyBoard = value;
         }
 
         public void LoadNick(TextBox txt)
@@ -45,12 +53,9 @@ namespace Balda
                 }
             }
 
-            string nick = "";
+            string nick = line.Remove(0, 10);
 
-            for (int i = num + 1; i < line.Length; i++)
-            {
-                nick.Insert(nick.Length + 1 , Convert.ToString(line[i]));
-            }
+            txt.Text += nick + Environment.NewLine;
 
             NickName = nick;
         }
@@ -59,9 +64,24 @@ namespace Balda
         {
             StreamReader fs = new StreamReader("../../Settings/Style.txt", Encoding.GetEncoding(1251));
 
-            string colorStyle = fs.ReadLine();
+            string colorPlit = "";
+            string colorKeyBoard = "";
 
-            Color = colorStyle;
+            for (int i = 0; i < 2; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        colorPlit = fs.ReadLine();
+                        break;
+                    case 1:
+                        colorKeyBoard = fs.ReadLine();
+                        break;
+                }
+            }
+
+            ColorPlit = colorPlit;
+            ColorKeyBoard = colorKeyBoard;
         }
 
     }
