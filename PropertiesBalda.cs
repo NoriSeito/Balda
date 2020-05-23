@@ -22,6 +22,12 @@ namespace Balda
             set => _nickName = value;
         }
 
+        public string Color
+        {
+            get => _color;
+            set => _color = value;
+        }
+
         public void LoadNick(TextBox txt)
         {
             StreamReader fs = new StreamReader("../../Settings/NickName.txt", Encoding.GetEncoding(1251));
@@ -47,6 +53,15 @@ namespace Balda
             }
 
             NickName = nick;
+        }
+
+        public void SetColors()
+        {
+            StreamReader fs = new StreamReader("../../Settings/Style.txt", Encoding.GetEncoding(1251));
+
+            string colorStyle = fs.ReadLine();
+
+            Color = colorStyle;
         }
 
     }

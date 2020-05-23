@@ -44,6 +44,9 @@ namespace Balda
                     {
                         Button btn = new Button();
 
+                        string color = prop.Color;
+
+                        btn.BackColor = Color.FromName(color);
                         btn.Text = Convert.ToString(startWord[i]);
                         btn.Size = new Size(Size_btn, Size_btn);
                         btn.Location = new Point(i * pos, j * pos);
@@ -55,6 +58,9 @@ namespace Balda
                     {
                         Button btn = new Button();
 
+                        string color = prop.Color;
+
+                        btn.BackColor = Color.FromName(color);
                         btn.Text = "";
                         btn.Size = new Size(Size_btn, Size_btn);
                         btn.Location = new Point(i * pos, j * pos);
@@ -78,6 +84,8 @@ namespace Balda
         private void Form1_Load(object sender, EventArgs e)
         {
             prop.LoadNick(textBox1);
+
+            prop.SetColors();
 
             list.Input_All_Words();
 
