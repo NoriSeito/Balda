@@ -23,6 +23,9 @@ namespace Balda
 
         PropertiesBalda prop = new PropertiesBalda();
 
+        bool f = false;
+        bool a = true;
+
         public Form1()
         {
             InitializeComponent();
