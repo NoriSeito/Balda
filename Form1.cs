@@ -16,6 +16,8 @@ namespace Balda
         List<Button> btns = new List<Button>();
         List<Button> keyboard = new List<Button>();
 
+        Key key = new Key();
+
         Form dlg = new Settings();
 
 
@@ -67,7 +69,7 @@ namespace Balda
                         btn.Size = new Size(Size_btn, Size_btn);
                         btn.Location = new Point(i * pos, j * pos);
 
-                        //btn.Click += new System.EventHandler(this.Bnts_Clicks);
+                        btn.Click += new System.EventHandler(this.Btns_Clicks);
 
                         panel1.Controls.Add(btn);
                         btns.Add(btn);
@@ -81,6 +83,13 @@ namespace Balda
 
             label2.Text = label4.Text = "0";
 
+        }
+
+        public void Btns_Clicks(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            btn.Text = key.KeyName;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -163,7 +172,11 @@ namespace Balda
 
         public void KeyBoard_Click(object sender, EventArgs e)
         {
-            string text;
+            string text = sender.ToString();
+
+            textBox1.Text += text + Environment.NewLine;
+
+            key.KeyName = text.Substring(35,1);
         }
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
