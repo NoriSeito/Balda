@@ -15,6 +15,7 @@ namespace Balda
         WordsList list = new WordsList();
         List<Button> btns = new List<Button>();
         List<Button> keyboard = new List<Button>();
+        List<Button> Players = new List<Button>();
 
         Key key = new Key();
 
@@ -85,6 +86,20 @@ namespace Balda
             label3.Text = prop.NickName2;
 
             label2.Text = label4.Text = "0";
+
+            Button btn1 = new Button();
+
+            btn1.Text = "Зафиксировать букву: ";
+            btn1.Location = new Point(430, 522);
+
+            btn1.Click += new System.EventHandler(this.Save_btn);
+
+            this.Controls.Add(btn1);
+
+        }
+
+        void Save_btn(object sender, EventArgs e)
+        {
 
         }
 
@@ -175,11 +190,14 @@ namespace Balda
 
         public void KeyBoard_Click(object sender, EventArgs e)
         {
-            string text = sender.ToString();
+            if (f)
+            {
+                string text = sender.ToString();
 
-            textBox1.Text += text + Environment.NewLine;
+                textBox1.Text += text + Environment.NewLine;
 
-            key.KeyName = text.Substring(35,1);
+                key.KeyName = text.Substring(35, 1);
+            }
         }
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)

@@ -38,10 +38,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.играToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новаяИграToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.обИгреToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменениеВнешногоВидаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.обИгреToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,19 +136,6 @@
             this.новаяИграToolStripMenuItem.Text = "Новая игра";
             this.новаяИграToolStripMenuItem.Click += new System.EventHandler(this.новаяИграToolStripMenuItem_Click);
             // 
-            // обИгреToolStripMenuItem
-            // 
-            this.обИгреToolStripMenuItem.Name = "обИгреToolStripMenuItem";
-            this.обИгреToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.обИгреToolStripMenuItem.Text = "Об игре";
-            // 
-            // выходToolStripMenuItem
-            // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
-            // 
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -163,6 +150,19 @@
             this.изменениеВнешногоВидаToolStripMenuItem.Name = "изменениеВнешногоВидаToolStripMenuItem";
             this.изменениеВнешногоВидаToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.изменениеВнешногоВидаToolStripMenuItem.Text = "Изменение внешного вида";
+            // 
+            // обИгреToolStripMenuItem
+            // 
+            this.обИгреToolStripMenuItem.Name = "обИгреToolStripMenuItem";
+            this.обИгреToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.обИгреToolStripMenuItem.Text = "Об игре";
+            // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // Form1
             // 
