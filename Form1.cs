@@ -16,6 +16,8 @@ namespace Balda
         List<Button> btns = new List<Button>();
         List<Button> keyboard = new List<Button>();
 
+        Form dlg = new Settings();
+
 
         PropertiesBalda prop = new PropertiesBalda();
 
@@ -162,6 +164,11 @@ namespace Balda
         public void KeyBoard_Click(object sender, EventArgs e)
         {
             string text;
+        }
+
+        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dlg.Show();
         }
     }
 }

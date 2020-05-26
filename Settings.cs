@@ -23,12 +23,16 @@ namespace Balda
         {
             prop.NickName1 = textBox1.Text;
             prop.NickName2 = textBox2.Text;
+            //prop.ColorPlit =
+            //prop.ColorKeyBoard =
+
+            prop.Seve_Settings();
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            textBox1.Text = prop.NickName1;
-            textBox2.Text = prop.NickName2;
+            textBox1.Text += prop.NickName1;
+            textBox2.Text += prop.NickName2;
         }
     }
 }

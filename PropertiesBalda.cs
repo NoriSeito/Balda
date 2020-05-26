@@ -82,9 +82,9 @@ namespace Balda
 
         public void Seve_Settings()
         {
-            StreamWriter fd = new StreamWriter("../../Settings/NickName.txt", Encoding.GetEncoding(1251));
+            StreamWriter fd = new StreamWriter("../../Settings/NickName.txt");
 
-
+            fd.WriteLine("{0}\n{1}", NickName1, NickName2);
         }
 
     }

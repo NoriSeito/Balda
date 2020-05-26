@@ -156,6 +156,7 @@
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
+            this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
             // изменениеВнешногоВидаToolStripMenuItem
             // 
