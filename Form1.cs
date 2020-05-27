@@ -17,6 +17,11 @@ namespace Balda
         List<Button> keyboard = new List<Button>();
         List<Button> Players = new List<Button>();
 
+        Button btn2 = new Button();
+        Button btn1 = new Button();
+
+        WordSelected wrd = new WordSelected();
+
         Key key = new Key();
 
         Form dlg = new Settings();
@@ -24,10 +29,16 @@ namespace Balda
 
         PropertiesBalda prop = new PropertiesBalda();
 
-        bool f = false;
-        bool a = true;
+        bool f = false;//тип ввода
+
+        bool a = true;//игрок
 
         bool checker = false;
+
+        int Score1 = 0;
+
+        int Score2 = 0;
+
 
         public Form1()
         {
@@ -60,6 +71,7 @@ namespace Balda
                         btn.Text = Convert.ToString(startWord[i]);
                         btn.Size = new Size(Size_btn, Size_btn);
                         btn.Location = new Point(i * pos, j * pos);
+                        btn.Click += new System.EventHandler(this.Btns_Clicks);
 
                         panel1.Controls.Add(btn);
                         btns.Add(btn);
@@ -87,9 +99,10 @@ namespace Balda
 
             label3.Text = prop.NickName2;
 
-            label2.Text = label4.Text = "0";
+            label2.Text = Convert.ToString(Score1);
 
-            Button btn1 = new Button();
+            label4.Text = Convert.ToString(Score2);
+
 
             btn1.Text = "Зафиксировать букву: ";
             btn1.Location = new Point(430, 522);
@@ -98,6 +111,14 @@ namespace Balda
 
             this.Controls.Add(btn1);
             Players.Add(btn1);
+
+            
+
+            btn2.Text = "закончить ход";
+            btn2.Location = new Point(430, 522);
+            btn1.Click += new System.EventHandler(this.next_Player);
+
+            Players.Add(btn2);
         }
 
         void Save_btn(object sender, EventArgs e)
@@ -105,16 +126,60 @@ namespace Balda
             if (checker)
             {
                 f = true;
+                this.Controls.Remove(btn1);
+                this.Controls.Add(btn2);
             }
+        }
+
+        void next_Player(object sender, EventArgs e)
+        {
+            bool set_word = false;
+
+            set_word = list.Search_Word(wrd.Word);
+
+            string name = wrd.Word;
+
+            if (set_word)
+            {
+                int length = name.Length;
+
+                if (!a)
+                {
+                    Score1 += length;
+                    textBox1.Text += name + " : " + length + Environment.NewLine;
+                    label2.Text = Convert.ToString(Score1);
+                }
+                else
+                {
+                    Score2 += length;
+                    textBox2.Text += name + " : " + length + Environment.NewLine;
+                    label4.Text = Convert.ToString(Score2);
+                }
+            }
+
+            a = !a;
+
+            f = false;
+            this.Controls.Remove(btn2);
+            this.Controls.Add(btn1);
         }
 
         public void Btns_Clicks(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
+            if(!f)
+            {
+                Button btn = (Button)sender;
 
-            btn.Text = key.KeyName;
+                if (btn.Text == "") btn.Text = key.KeyName;
 
-            checker = true;
+                checker = true;
+            }
+            else
+            {
+                Button btn = (Button)sender;
+
+                wrd.Word += btn.Text;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -200,8 +265,6 @@ namespace Balda
             if (!f)
             {
                 string text = sender.ToString();
-
-                textBox1.Text += text + Environment.NewLine;
 
                 key.KeyName = text.Substring(35, 1);
             }

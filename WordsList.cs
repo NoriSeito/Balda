@@ -83,5 +83,20 @@ namespace Balda
 
             StarterWord = starterWords[num];
         }
+
+        public bool Search_Word(string name)
+        {
+            bool f = false;
+
+            foreach (WordsPoint obj in list)
+            {
+               if (obj.word == name)
+                {
+                    f = true;
+                }
+            }
+
+            return f;
+        }
     }
 }
