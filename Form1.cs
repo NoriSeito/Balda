@@ -27,6 +27,8 @@ namespace Balda
         bool f = false;
         bool a = true;
 
+        bool checker = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -95,12 +97,15 @@ namespace Balda
             btn1.Click += new System.EventHandler(this.Save_btn);
 
             this.Controls.Add(btn1);
-
+            Players.Add(btn1);
         }
 
         void Save_btn(object sender, EventArgs e)
         {
-
+            if (checker)
+            {
+                f = true;
+            }
         }
 
         public void Btns_Clicks(object sender, EventArgs e)
@@ -108,6 +113,8 @@ namespace Balda
             Button btn = (Button)sender;
 
             btn.Text = key.KeyName;
+
+            checker = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -190,7 +197,7 @@ namespace Balda
 
         public void KeyBoard_Click(object sender, EventArgs e)
         {
-            if (f)
+            if (!f)
             {
                 string text = sender.ToString();
 
