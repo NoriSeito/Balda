@@ -19,7 +19,15 @@ namespace Balda
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            prop.LoadNick(textBox1);
+
+            textBox1.Text = (string)prop.NickName1;
+            textBox2.Text = (string)prop.NickName2;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
             prop.NickName1 = textBox1.Text;
             prop.NickName2 = textBox2.Text;
@@ -27,12 +35,8 @@ namespace Balda
             //prop.ColorKeyBoard =
 
             prop.Seve_Settings();
-        }
 
-        private void Settings_Load(object sender, EventArgs e)
-        {
-            textBox1.Text += prop.NickName1;
-            textBox2.Text += prop.NickName2;
+            this.Close();
         }
     }
 }

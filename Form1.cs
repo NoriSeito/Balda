@@ -24,7 +24,7 @@ namespace Balda
 
         Key key = new Key();
 
-        Form dlg = new Settings();
+        Form dlg = (Settings)Application.OpenForms["Settings"];
 
 
         PropertiesBalda prop = new PropertiesBalda();
@@ -47,8 +47,18 @@ namespace Balda
 
         public void Generate_App(List<Button> btns, string startWord)
         {
-            this.Size = new Size(995, 610);
+            this.Size = new Size(995, 610 + 340);
+
+            f = false;//тип ввода
             
+            a = true;//игрок
+
+            checker = false;
+
+            Score1 = 0;
+
+            Score2 = 0;
+
             int size = 400;
 
             int CollBtns = 5;
@@ -95,9 +105,18 @@ namespace Balda
                 }
             }
 
-            label1.Text = prop.NickName1;
+            if (a)
+            {
+                label5.Text = "Ход игрока " + prop.NickName1;
+            }
+            else
+            {
+                label5.Text = "Ход игрока " + prop.NickName2;
+            }
 
-            label3.Text = prop.NickName2;
+            label1.Text = (string)prop.NickName1;
+
+            label3.Text = (string)prop.NickName2;
 
             label2.Text = Convert.ToString(Score1);
 
@@ -116,9 +135,12 @@ namespace Balda
 
             btn2.Text = "закончить ход";
             btn2.Location = new Point(430, 522);
-            btn1.Click += new System.EventHandler(this.next_Player);
+            btn2.Click += new System.EventHandler(this.next_Player);
 
             Players.Add(btn2);
+
+            Generate_Board();
+
         }
 
         void Save_btn(object sender, EventArgs e)
@@ -128,6 +150,11 @@ namespace Balda
                 f = true;
                 this.Controls.Remove(btn1);
                 this.Controls.Add(btn2);
+            }
+            else
+            {
+                this.Controls.Remove(btn2);
+                this.Controls.Add(btn1);
             }
         }
 
@@ -143,7 +170,7 @@ namespace Balda
             {
                 int length = name.Length;
 
-                if (!a)
+                if (a)
                 {
                     Score1 += length;
                     textBox1.Text += name + " : " + length + Environment.NewLine;
@@ -158,6 +185,15 @@ namespace Balda
             }
 
             a = !a;
+
+            if (a)
+            {
+                label5.Text = "Ход игрока " + prop.NickName1;
+            }
+            else
+            {
+                label5.Text = "Ход игрока " + prop.NickName2;
+            }
 
             f = false;
             this.Controls.Remove(btn2);
@@ -195,14 +231,12 @@ namespace Balda
             string startWord = list.StarterWord;
 
             Generate_App(btns, startWord);
-
-            this.Size = new Size(995, 610 + 340);
-
-            Generate_Board();
         }
 
         private void новаяИграToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            prop.LoadNick(textBox1);
+
             panel1.Controls.Clear();
 
             textBox1.Clear();
@@ -272,7 +306,13 @@ namespace Balda
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dlg.Show();
+            if (dlg == null) // Если форма не существует, то создаём
+            {
+                Settings form2 = new Settings(); // Создание нового экземпляра формы
+                form2.Show(); // Отображаем форму
+            }
+            else
+                dlg.Activate(); // Активируем форму на передний план (из трея или заднего плана)
         }
     }
 }

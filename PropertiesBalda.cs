@@ -49,11 +49,17 @@ namespace Balda
 
             string nick = (string)fs.ReadLine();
 
+
             NickName1 = nick;
+
 
             nick = (string)fs.ReadLine();
 
+
             NickName2 = nick;
+
+            fs.Close();
+
         }
 
         public void SetColors()
@@ -78,13 +84,20 @@ namespace Balda
 
             ColorPlit = colorPlit;
             ColorKeyBoard = colorKeyBoard;
+
+            fs.Close();
         }
 
         public void Seve_Settings()
         {
-            StreamWriter fd = new StreamWriter("../../Settings/NickName.txt");
+            //StreamWriter fd = new StreamWriter("../../Settings/NickName.txt");
 
-            fd.WriteLine("{0}\n{1}", NickName1, NickName2);
+
+
+            StreamWriter sw = new StreamWriter(new FileStream("../../Settings/NickName.txt", FileMode.Open, FileAccess.Write));
+
+            sw.WriteLine("{0}\n{1}",NickName1,NickName2);
+            sw.Close();
         }
 
     }
